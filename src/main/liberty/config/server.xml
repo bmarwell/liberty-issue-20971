@@ -1,0 +1,28 @@
+<server>
+
+  <featureManager>
+    <feature>servlet-4.0</feature>
+    <feature>jaxrs-2.1</feature>
+    <feature>jpa-2.2</feature>
+    <feature>OpenAPI-3.1</feature>
+  </featureManager>
+
+  <mpMetrics authentication="false"/>
+
+  <library id="postgresqllib">
+    <fileset dir="/opt/ol/usr/shared/resources" includes="*.jar"/>
+  </library>
+
+  <dataSource id="DefaultDataSource" jndiName="jdbc/postgresql">
+    <jdbcDriver
+        libraryRef="postgresqllib"
+    />
+    <properties
+      URL="jdbc:postgres://db/liberty"
+    />
+    <properties.postgresql
+        localSocketAddress="192.168.53.14"
+    />
+  </dataSource>
+
+</server>
